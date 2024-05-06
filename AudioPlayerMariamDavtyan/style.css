@@ -1,0 +1,141 @@
+html ,
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.main{
+    margin: 0px;
+    padding:0px;
+    height: 100%;
+    width: 100%;
+        background-image: url("https://i.pinimg.com/736x/81/ef/e0/81efe08b0147ad877b57d5cc6ff7445a.jpg");
+        background-size: cover;
+        filter: blur(5px);
+        background-position-y: 50%;
+        background-position-x: 50%;
+        
+}
+.player{
+    background-color: rgba(233, 117, 181, 0.5);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+
+    height: 320px;
+    width: 400px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 7px 11px 10px aqua;
+}
+.row1{
+    height: 40%;
+    width: 100%;
+    background-image: url("https://i.pinimg.com/736x/81/ef/e0/81efe08b0147ad877b57d5cc6ff7445a.jpg");
+    background-size: cover;
+    background-position-y: 51%;
+
+
+}
+
+#songTitle{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    color: rgb(0, 221, 255);
+    font-family: monospace;
+    font-size: 18px;
+}
+.row2{
+    height: 50%;
+    width: 100%;
+    background-color: pink;
+}
+.play{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#pre{
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    margin-top: 20px;
+}
+#play{
+    height: 35px;
+    width: 35px;
+    background-size: cover;
+    margin-top: 20px;
+}
+#next{
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    margin-top: 20px;
+}
+.seek-bar{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.handle{
+    height: 5px;
+    width: 80%;
+    background: linear-gradient(to right ,#66b1c9 0%,#ff99cc 100%);
+    border-color: 25px;
+}
+.fill{
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: rgb(27, 198, 221);
+    filter: contrast(60%);
+    z-index: 999;
+    margin-top: -1.5px;
+    margin-left: -1.5px;
+
+    
+}
+.mute{
+    height: 40%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+.currentTime{
+    width: 50%;
+    height: 100%;
+    margin-left: 35px;
+    margin-top: -27px;
+    color: rgb(95, 60, 193);
+    filter: contrast(50%);
+}
+#decrease{
+    height: 20px;
+    width: 20px;
+    background-size: cover;
+    margin: 5px;
+}
+
+#mute{
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    margin: 5px;
+}
+#increase{
+    height: 20px;
+    width: 20px;
+    background-size: cover;
+    margin: 5px;
+}
