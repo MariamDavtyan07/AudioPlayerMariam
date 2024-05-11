@@ -15,3 +15,6 @@ let data = {
             "https://i1.sndcdn.com/artworks-000133937425-n6zixi-t500x500.jpg",
              "https://i.ytimg.com/vi/8Gy2ZDGLteQ/sddefault.jpg"]
 }
+
+
+///functions
