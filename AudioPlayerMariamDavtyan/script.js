@@ -16,7 +16,7 @@ let data = {
         "https://upload.wikimedia.org/wikipedia/it/a/a2/Shape_of_My_Heart_%28Sting%29.png",
         "https://i.ytimg.com/vi/lYx1A2cDus0/maxresdefault.jpg",
         "https://i.ytimg.com/vi/m9eK8vtNtS0/sddefault.jpg",
-        "https://i.ytimg.com/vi/8Gy2ZDGLteQ/sddefault.jpg",
+        "https://i1.sndcdn.com/artworks-oognxLUJjxGNrY1M-kXqn7A-t500x500.jpg",
         "https://i.ytimg.com/vi/iIdCJUBb0_Q/maxresdefault.jpg",
 
     ],
@@ -119,7 +119,7 @@ function mute(){
 }
 function decrease(){
     song.volume -= 0.2
-    if(song.volume <=0.1){
+    if(song.volume <=0.2){
         mute.src = "images/volume-mute.png"
     }
 }

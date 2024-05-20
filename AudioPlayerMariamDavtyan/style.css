@@ -19,7 +19,7 @@ body{
         
 }
 .player{
-    background-color: rgba(233, 117, 181, 0.5);
+    background-color: rgb(175, 161, 154);
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
@@ -29,7 +29,7 @@ body{
     width: 400px;
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 7px 11px 10px aqua;
+    box-shadow: 7px 11px 10px rgb(40, 46, 46);
 }
 .row1{
     height: 40%;
@@ -45,14 +45,14 @@ body{
     width: 100%;
     height: 10%;
     text-align: center;
-    color: rgb(0, 221, 255);
+    color: rgb(0, 0, 0);
     font-family: monospace;
     font-size: 18px;
 }
 .row2{
     height: 50%;
     width: 100%;
-    background-color: pink;
+    background-color: rgb(107, 104, 104);
 }
 .play{
     width: 100%;
@@ -90,14 +90,14 @@ body{
 .handle{
     height: 5px;
     width: 80%;
-    background: linear-gradient(to right ,#66b1c9 0%,#ff99cc 100%);
+    background: linear-gradient(to right ,#343636 0%,#dfcab3 100%);
     border-color: 25px;
 }
 .fill{
     height: 8px;
     width: 8px;
     border-radius: 50%;
-    background-color: rgb(27, 198, 221);
+    background-color: rgb(0, 0, 0);
     filter: contrast(60%);
     z-index: 999;
     margin-top: -1.5px;
@@ -117,7 +117,7 @@ body{
     height: 100%;
     margin-left: 35px;
     margin-top: -27px;
-    color: rgb(95, 60, 193);
+    color: rgb(206, 200, 200);
     filter: contrast(50%);
 }
 #decrease{
