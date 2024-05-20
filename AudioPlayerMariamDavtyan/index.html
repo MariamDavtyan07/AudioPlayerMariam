@@ -16,9 +16,9 @@
             <div id="songTitle">Title</div>
             <div class="row2">
                 <div class="play">
-                          <img src="images/previous.png" id="pre" onclick = "prev()"alt="">
-                          <img src="images/play-button-arrowhead.png" id="play" onclick = "playOrPauseSong()" alt="">
-                          <img src="images/next.png" id="next" onclick = "next()" alt="">
+                          <img src="images/previous.png" id="pre" onclick="prev()" alt="">
+                          <img src="images/play-button-arrowhead.png" id="play" onclick="playOrPauseSong()" alt="">
+                          <img src="images/next.png" id="next" onclick="next()" alt="">
                 </div>
                 <div class="seek-bar">
                     <div class="handle">
@@ -31,15 +31,26 @@
                 <div class="mute">
                     <div class="currentTime">00 : 00 / 00 : 00</div>
                     <div class="muteButtons">
-                        <img src="images/volume-down.png" id="decrease" onclick = "decrease()" alt="">
-                        <img src="images/volume.png" id="mute" onclick = "mute()" alt="">
-                        <img src="images/increase-volume.png" id="increase" onclick = "increase()" alt="">
+                        <img src="images/volume-down.png" id="decrease" onclick="decrease()" alt="">
+                        <img src="images/volume.png" id="mute" onclick="mute()" alt="">
+                        <img src="images/increase-volume.png" id="increase" onclick="increase()" alt="">
 
                     </div>
                     
                 </div>
     </div>
     </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn">Choose Favorite Song</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="#" onclick="changeSong(0)">Shape of my heart</a>
+            <a href="#" onclick="changeSong(1)">Ov khandipi</a>
+            <a href="#" onclick="changeSong(2)">Last chance to love</a>
+            <a href="#" onclick="changeSong(3)">If you go</a>
+            <a href="#" onclick="changeSong(4)">Daisy</a>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
