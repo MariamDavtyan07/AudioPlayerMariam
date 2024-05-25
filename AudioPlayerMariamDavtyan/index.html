@@ -8,37 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main" id="main">
-
-    </div>
+    <div class="main" id="main"></div>
     <div class="player">
-            <div class="row1"></div>
-            <div id="songTitle">Title</div>
-            <div class="row2">
-                <div class="play">
-                          <img src="images/previous.png" id="pre" onclick="prev()" alt="">
-                          <img src="images/play-button-arrowhead.png" id="play" onclick="playOrPauseSong()" alt="">
-                          <img src="images/next.png" id="next" onclick="next()" alt="">
+        <div class="row1"></div>
+        <div id="songTitle">Title</div>
+        <div class="row2">
+            <div class="play">
+                <img src="images/previous.png" id="pre" onclick="prev()" alt="">
+                <img src="images/play-button-arrowhead.png" id="play" onclick="playOrPauseSong()" alt="">
+                <img src="images/next.png" id="next" onclick="next()" alt="">
+            </div>
+            <div class="seek-bar">
+                <div class="handle">
+                    <div class="fill"></div>
                 </div>
-                <div class="seek-bar">
-                    <div class="handle">
-                        <div class="fill">
-
-                        </div>
-                    </div>
+            </div>
+            <div class="mute">
+                <div class="currentTime">00 : 00 / 00 : 00</div>
+                <div class="muteButtons">
+                    <img src="images/volume-down.png" id="decrease" onclick="decrease()" alt="">
+                    <img src="images/volume.png" id="mute" onclick="mute()" alt="">
+                    <img src="images/increase-volume.png" id="increase" onclick="increase()" alt="">
+                    <img src="images/mix.png" id="mix" onclick="mixSongs()" alt="">
                 </div>
-              
-                <div class="mute">
-                    <div class="currentTime">00 : 00 / 00 : 00</div>
-                    <div class="muteButtons">
-                        <img src="images/volume-down.png" id="decrease" onclick="decrease()" alt="">
-                        <img src="images/volume.png" id="mute" onclick="mute()" alt="">
-                        <img src="images/increase-volume.png" id="increase" onclick="increase()" alt="">
-
-                    </div>
-                    
-                </div>
-    </div>
+            </div>
+            <!-- Repeat Button -->
+            <div class="repeat">
+                <img src="images/repeat.png" id="repeat" onclick="toggleRepeat()" alt="">
+            </div>
+        </div>
     </div>
     <div class="dropdown">
         <button onclick="toggleDropdown()" class="dropbtn">Choose Favorite Song</button>
@@ -50,7 +48,12 @@
             <a href="#" onclick="changeSong(4)">Daisy</a>
         </div>
     </div>
-    
+
+    <div class="repeat">
+        <img src="images/repeat.png" id="repeat" onclick="toggleRepeat()" alt="Repeat">
+    </div>
+      
     <script src="script.js"></script>
 </body>
 </html>
+

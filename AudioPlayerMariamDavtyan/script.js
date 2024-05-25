@@ -4,10 +4,11 @@ let data = {
         "Ov khandipi",
         "Last chance to love",
         "If you go",
-        "Daisy",],
+        "Daisy",
+    ],
     song: [
         "songs/Sting - Shape Of My Heart (11).mp3",
-        "songs/PROJECT LA feat. Gor Sujyan - Ov Khandipi (Eghishe Charents) 2018.mp3", 
+        "songs/PROJECT LA feat. Gor Sujyan - Ov Khandipi (Eghishe Charents) 2018.mp3",
         "songs/Nemra_-_Last_chance_to_love_76972100.mp3",
         "songs/Nemra-If_you_go.mp3",
         "songs/2e849b6a74592e9a96506acec6b3587c_nemra-daisy.mp3",
@@ -18,117 +19,117 @@ let data = {
         "https://i.ytimg.com/vi/m9eK8vtNtS0/sddefault.jpg",
         "https://i1.sndcdn.com/artworks-oognxLUJjxGNrY1M-kXqn7A-t500x500.jpg",
         "https://i.ytimg.com/vi/iIdCJUBb0_Q/maxresdefault.jpg",
-
     ],
 }
 
-let song = new Audio()
-window.onload = function(){
-    playSong()
-}
-let currentSong = 0
-function playSong(){
-    song.src = data.song[currentSong]
-    let songTitle = document.getElementById("songTitle")
-    songTitle.textContent = data.title[currentSong]
-    let img = document.getElementsByClassName("row1")
-    img[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")"
-    let main = document.getElementsByClassName("main")
-    main[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")"
-    song.play()
-}
-function playOrPauseSong(){
-    let play = document.getElementById("play")
-    if(song.paused){
-        song.play()
-        play.src = "images/pause.png"
+let song = new Audio();
+let currentSong = 0;
 
-    }else{
-        song.pause()
-        play.src = "images/play-button-arrowhead.png"
-    }
-
+window.onload = function() {
+    playSong();
 }
 
-song.addEventListener("timeupdate",function(){
-    let fill = document.getElementsByClassName("fill")
-    let position = song.currentTime/song.duration
-    fill[0].style.marginLeft = position * 99 + "%"
-
-    convertTime(song.currentTime)
-    if(song.ended){
-        next()
-    }
-    
-})
-
-function convertTime(seconds){
-    let currentTime = document.getElementsByClassName("currentTime")
-    let min =   Math.floor(seconds/60)
-    let sec =   Math.floor(seconds%60)
-    min = (min<10) ? "0" + min : min
-    sec = (sec<10) ? "0" + sec : sec
-    currentTime[0].textContent = min + ":" + sec
-    totalTime(Math.round(song.duration))
-
-
-
-
-
-}
-function totalTime(seconds){
-    let currentTime = document.getElementsByClassName("currentTime")
-    let min =   Math.floor(seconds/60)
-    let sec =   Math.floor(seconds%60)
-    min = (min<10) ? "0" + min : min
-    sec = (sec<10) ? "0" + sec : sec
-    currentTime[0].textContent+= " / " + min + ":" + sec
-}
-function prev(){
-    currentSong--
-    let play = document.getElementById("play")
-    if(currentSong < 0){
-        currentSong = data.song.length-1
-    }
-    
-    playSong()
-    play.src = "images/pause.png"
-}
-function next(){
-    currentSong++
-    let play = document.getElementById("play")
-    if(currentSong == data.song.length){
-        currentSong = 0
-    }
-    
-    playSong()
-    play.src = "images/pause.png"
+function playSong() {
+    song.src = data.song[currentSong];
+    let songTitle = document.getElementById("songTitle");
+    songTitle.textContent = data.title[currentSong];
+    let img = document.getElementsByClassName("row1");
+    img[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")";
+    let main = document.getElementsByClassName("main");
+    main[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")";
+    song.play();
 }
 
-function mute(){
-    let mute = document.getElementById("mute")
-    if(song.muted){
-        song.muted = false
-        mute.src = "images/volume.png"
-
-    }
-    else{
-        song.muted = true
-        mute.src = "images/volume-mute.png"
+function playOrPauseSong() {
+    let play = document.getElementById("play");
+    if (song.paused) {
+        song.play();
+        play.src = "images/pause.png";
+    } else {
+        song.pause();
+        play.src = "images/play-button-arrowhead.png";
     }
 }
-function decrease(){
-    song.volume -= 0.2
-    if(song.volume <=0.2){
-        mute.src = "images/volume-mute.png"
+
+song.addEventListener("timeupdate", function() {
+    let fill = document.getElementsByClassName("fill");
+    let position = song.currentTime / song.duration;
+    fill[0].style.marginLeft = position * 99 + "%";
+    convertTime(song.currentTime);
+    if (song.ended) {
+        if (isRepeat) {
+            song.currentTime = 0;
+            song.play();
+        } else {
+            next();
+        }
+    }
+});
+
+function convertTime(seconds) {
+    let currentTime = document.getElementsByClassName("currentTime");
+    let min = Math.floor(seconds / 60);
+    let sec = Math.floor(seconds % 60);
+    min = (min < 10) ? "0" + min : min;
+    sec = (sec < 10) ? "0" + sec : sec;
+    currentTime[0].textContent = min + ":" + sec;
+    totalTime(Math.round(song.duration));
+}
+
+function totalTime(seconds) {
+    let currentTime = document.getElementsByClassName("currentTime");
+    let min = Math.floor(seconds / 60);
+    let sec = Math.floor(seconds % 60);
+    min = (min < 10) ? "0" + min : min;
+    sec = (sec < 10) ? "0" + sec : sec;
+    currentTime[0].textContent += " / " + min + ":" + sec;
+}
+
+function prev() {
+    currentSong--;
+    let play = document.getElementById("play");
+    if (currentSong < 0) {
+        currentSong = data.song.length - 1;
+    }
+    playSong();
+    play.src = "images/pause.png";
+}
+
+function next() {
+    currentSong++;
+    let play = document.getElementById("play");
+    if (currentSong == data.song.length) {
+        currentSong = 0;
+    }
+    playSong();
+    play.src = "images/pause.png";
+}
+
+function mute() {
+    let mute = document.getElementById("mute");
+    if (song.muted) {
+        song.muted = false;
+        mute.src = "images/volume.png";
+    } else {
+        song.muted = true;
+        mute.src = "images/volume-mute.png";
     }
 }
-function increase(){
-    song.volume += 0.2
-    if(song.volume >=0.2){
-        mute.src = "images/volume.png"
+
+function decrease() {
+    song.volume -= 0.2;
+    if (song.volume <= 0.2) {
+        mute.src = "images/volume-mute.png";
     }
 }
+
+function increase() {
+    song.volume += 0.2;
+    if (song.volume >= 0.2) {
+        mute.src = "images/volume.png";
+    }
+}
+
 function changeSong(index) {
     currentSong = index;
     playSong();
@@ -137,7 +138,6 @@ function changeSong(index) {
 function toggleDropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
@@ -151,3 +151,51 @@ window.onclick = function(event) {
         }
     }
 }
+let isRepeat = false;
+
+function toggleRepeat() {
+    let repeatButton = document.getElementById("repeat");
+    isRepeat = !isRepeat;
+    if (isRepeat) {
+        repeatButton.style.filter = "invert(100%)";
+    } else {
+        repeatButton.style.filter = "none";
+    }
+}
+
+song.addEventListener("ended", function() {
+    if (isRepeat) {
+        song.currentTime = 0;
+        song.play();
+    } else {
+        next();
+    }
+});
+function toggleSearch() {
+    let dropdown = document.getElementById("searchDropdown");
+    dropdown.classList.toggle("show");
+}
+function searchSongs() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let songs = document.querySelectorAll("#myDropdown a");
+    songs.forEach(function(song) {
+        if (song.textContent.toLowerCase().indexOf(input) > -1) {
+            song.style.display = "";
+        } else {
+            song.style.display = "none";
+        }
+    });
+}
+function mixSongs() {
+    // Logic for mixing songs goes here
+    // Example: You can randomly select another song to mix with the current song
+    let randomIndex = Math.floor(Math.random() * data.song.length);
+    while (randomIndex === currentSong) {
+        randomIndex = Math.floor(Math.random() * data.song.length);
+    }
+    currentSong = randomIndex;
+    playSong();
+}
+
+
+

@@ -176,7 +176,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #9f9c95;
+    background-color: #b1aea6;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -196,5 +196,28 @@ body {
 .show {
     display: block;
 }
+.repeat {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.repeat img {
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+}
+#mix {
+    height: 25px;
+    width: 25px;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: 12px;
+    position: absolute;
+    right: 83%;
+}
+
+
 
   
