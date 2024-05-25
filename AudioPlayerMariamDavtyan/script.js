@@ -5,6 +5,7 @@ let data = {
         "Last chance to love",
         "If you go",
         "Daisy",
+        "Fairytale"
     ],
     song: [
         "songs/Sting - Shape Of My Heart (11).mp3",
@@ -12,6 +13,7 @@ let data = {
         "songs/Nemra_-_Last_chance_to_love_76972100.mp3",
         "songs/Nemra-If_you_go.mp3",
         "songs/2e849b6a74592e9a96506acec6b3587c_nemra-daisy.mp3",
+        "songs/Александр Рыбак - Fairytale (megapesni.fm).mp3"
     ],
     poster: [
         "https://upload.wikimedia.org/wikipedia/it/a/a2/Shape_of_My_Heart_%28Sting%29.png",
@@ -19,6 +21,7 @@ let data = {
         "https://i.ytimg.com/vi/m9eK8vtNtS0/sddefault.jpg",
         "https://i1.sndcdn.com/artworks-oognxLUJjxGNrY1M-kXqn7A-t500x500.jpg",
         "https://i.ytimg.com/vi/iIdCJUBb0_Q/maxresdefault.jpg",
+        "https://i.ytimg.com/vi/ogM3TRhdWUc/maxresdefault.jpg"
     ],
 }
 
@@ -27,6 +30,13 @@ let currentSong = 0;
 
 window.onload = function() {
     playSong();
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight') {
+            fastForward(5);
+        } else if (event.key === 'ArrowLeft') {
+            rewind(5);
+        }
+    });
 }
 
 function playSong() {
@@ -171,10 +181,12 @@ song.addEventListener("ended", function() {
         next();
     }
 });
+
 function toggleSearch() {
     let dropdown = document.getElementById("searchDropdown");
     dropdown.classList.toggle("show");
 }
+
 function searchSongs() {
     let input = document.getElementById("searchInput").value.toLowerCase();
     let songs = document.querySelectorAll("#myDropdown a");
@@ -186,9 +198,8 @@ function searchSongs() {
         }
     });
 }
+
 function mixSongs() {
-    // Logic for mixing songs goes here
-    // Example: You can randomly select another song to mix with the current song
     let randomIndex = Math.floor(Math.random() * data.song.length);
     while (randomIndex === currentSong) {
         randomIndex = Math.floor(Math.random() * data.song.length);
@@ -197,5 +208,10 @@ function mixSongs() {
     playSong();
 }
 
+function fastForward(seconds) {
+    song.currentTime = Math.min(song.currentTime + seconds, song.duration);
+}
 
-//
+function rewind(seconds) {
+    song.currentTime = Math.max(song.currentTime - seconds, 0);
+}
